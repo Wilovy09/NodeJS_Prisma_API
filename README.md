@@ -74,7 +74,6 @@ En el archivo `package.json`
 
 ## Prisma
 
-
 Crear la tabla de la DB en el archivo `schema.prisma`, recomiendo leer mis notas de [Prisma](https://github.com/Wilovy09/Prisma-Curso-ORM/blob/main/README.md)
 
 ```js
@@ -279,4 +278,40 @@ router.get('/category', async(req, res) => {
 
 // Exportamos el router
 export default router;
+```
+
+## Cors
+
+Instalamos el modulo `cors`
+
+```sh
+npm i cors
+```
+
+En el `index.js` agregaremos unas lineas
+
+```js
+import express from 'express';
+// importamos cors desde cors
+import cors from 'cors';
+import productRoutes from './routes/products.routes.js';
+import categoryRoutes from './routes/category.routes.js';
+
+const app = express();
+// Creamos cors
+const cors = require('cors')
+
+// Agregamos cors y lo configuramos
+app.use(cors({
+    "origin": "http://localhost:5173",
+    "methods": "GET,HEAD,PUT,POST,DELETE",
+}));
+
+app.use(express.json());
+
+app.use('/api', productRoutes);
+app.use('/api', categoryRoutes);
+
+// PORT
+app.listen(8000);
 ```
