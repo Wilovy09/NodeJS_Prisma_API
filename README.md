@@ -299,7 +299,7 @@ import categoryRoutes from './routes/category.routes.js';
 
 const app = express();
 // Creamos cors
-const cors = require('cors')
+const cors = ('cors')
 
 // Agregamos cors y lo configuramos
 app.use(cors({
