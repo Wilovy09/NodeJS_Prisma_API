@@ -292,14 +292,14 @@ En el `index.js` agregaremos unas lineas
 
 ```js
 import express from 'express';
+
 // importamos cors desde cors
 import cors from 'cors';
+
 import productRoutes from './routes/products.routes.js';
 import categoryRoutes from './routes/category.routes.js';
 
 const app = express();
-// Creamos cors
-const cors = ('cors')
 
 // Agregamos cors y lo configuramos
 app.use(cors({
